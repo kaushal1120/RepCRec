@@ -1,0 +1,10 @@
+//will cause T1 to abort because T1 accessed site 5.
+//At that point the read can go ahead.
+begin(T1)
+begin(T2)
+W(T1, x4, 44)
+R(T2, x4)
+fail(5)
+end(T1)
+end(T2)
+dump()
